@@ -4,21 +4,26 @@ root = Tk()
 
 root.geometry("500x500")
 root.title("  Registration ") 
-root.configure(background="light blue")
+root.configure(background="white")
 
-firstname= Label(root,text="First name:")
-lastname= Label(root,text="Last name:")
-Address= Label(root,text="Address:")
-Email= Label(root,text="Email:")
-Phone= Label(root,text="Phone:")
-Paymentmood= Label(root,text="Payment Mode:")
+# Label widgets
 
+firstname= Label(root,text="First name:",bg="light yellow")
+lastname= Label(root,text="Last name:",bg="light yellow")
+Address= Label(root,text="Address:",bg= "light yellow")
+Email= Label(root,text="Email:",bg= "light yellow")
+Phone= Label(root,text="Phone:", bg= "light yellow")
+Paymentmood= Label(root,text="Payment Mode:", bg = "light yellow")
+
+
+# size of widgets
 firstname.grid(row=1, column=0 , padx=10, pady=10, sticky=W)
 lastname.grid(row=2, column=0 , padx=10, pady=10, sticky=W)
 Address.grid(row=3, column= 0, padx=10, pady=10, sticky=W)
 Email.grid(row=4, column= 0, padx=10, pady=10, sticky=W)
 Phone.grid(row=5, column= 0, padx=10, pady=10, sticky=W)
 Paymentmood.grid(row=6, column= 0, padx=10, pady=10, sticky=W)
+
 
 firstnamevalue= StringVar
 phonevalue=StringVar
@@ -28,6 +33,7 @@ paymentvalue=StringVar
 address= StringVar
 checkvalue= IntVar
 
+# Entry Widgets
 firstnameentry= Entry(root, textvariable=firstnamevalue)
 lastnameentry= Entry(root,textvariable=lastname)
 address= Entry(root,textvariable=address)
@@ -47,9 +53,24 @@ phoneentry.grid(row=5, column=1)
 payment = StringVar()
 payment.set("Credit Card")
 drop = OptionMenu(root, payment, "Credit card","Paypal","Cash")
-drop.config(bg="light green")
 drop.grid(row=6, column=1 , padx=10, pady=10, sticky=W)
 
+
+
+# pop up box
+import tkinter.messagebox 
+
+def onClick(): 
+  tkinter.messagebox.showinfo("" , "Verification Successful")
+
+
+# Create a Button 
+button = Button(root, text="Register", command=onClick, height=1, width=5, padx=10, pady=10, bg='grey')
+
+
+# Set the position of button on the top of window. 
+ # button.pack(side='bottom')
+button.grid(row=7, column=1)
 
 
 
